@@ -11,6 +11,6 @@ public class CiTest {
     public void ciTest() throws Exception{
         int n = 2;
 
-        Assertions.assertThat(n).isEqualTo(1);
+        Assertions.assertThat(n).isEqualTo(1); 
     }
 }
