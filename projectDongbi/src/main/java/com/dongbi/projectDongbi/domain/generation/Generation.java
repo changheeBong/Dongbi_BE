@@ -30,6 +30,7 @@ public class Generation extends BaseEntity {
     @JoinColumn(name = "club_id")
     private Club club;
 
+    @Builder.Default
     @OneToMany(mappedBy = "generation", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<ClubMember> clubMembers = new ArrayList<>();
 
