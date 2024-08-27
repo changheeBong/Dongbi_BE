@@ -1,4 +1,4 @@
-name: 애자일허브 백엔드 CI 테스트 자동화
+name: 백엔드 CI 테스트 자동화
 
 on:
   pull_request:
@@ -38,7 +38,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-         token: ${{ secrets.ACTION_TOKEN }}
+         token: ${{ secrets.GITHUB_TOKEN }}
          submodules: true
 
       - name: Gradle 명령 실행을 위한 권한을 부여합니다
@@ -58,7 +58,7 @@ jobs:
         if: always()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
 
       - name: Cleanup Gradle Cache
