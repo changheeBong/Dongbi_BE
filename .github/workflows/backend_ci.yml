@@ -35,6 +35,11 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+      - name: Configure Git to use PAT for submodules
+        run: |
+          git config --global url."https://${{ secrets.ACTION_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
