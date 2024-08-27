@@ -36,9 +36,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Configure Git to use PAT for submodules
-        run: |
-          git config --global url."https://${{ secrets.ACTION_TOKEN }}@github.com/".insteadOf "https://github.com/"
           
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -50,7 +47,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Gradle build를 수행합니다
-        run: ./gradlew clean build -x test
+        run: ./gradlew build
 
       - name: 테스트 결과를 PR에 코멘트로 등록합니다
         uses: EnricoMi/publish-unit-test-result-action@v1
