@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active:
+      on-profile: test
+  datasource:
+    url: jdbc:mariadb://localhost:3306/dongbi
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
+  jwt:
+    secret: rkskekfkakqktkdkwkckzkxkvkgkakdntmzkdlekdlqld
+    accessToken_expiration_time: 60000
+    refreshToken_expiration_time: 86400000
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: t@gmail.com
+    password: t
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+cloud:
+  aws:
+    credentials:
+      accessKey:
+      secretKey:
+    region:
+      static:
+    s3:
+      bucket:
